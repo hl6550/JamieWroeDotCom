@@ -1,44 +1,62 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Butt kicking for goodness!", "Index", "Home", null, new { @class = "brand" })
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Portfolio", "Portfolio", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("butt kicking for goodness", "Index", "Home", null, new { @class = "brand" })
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li>@Html.ActionLink("home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("portfolio", "Portfolio", "Home")</li>
+                            <li>@Html.ActionLink("about", "About", "Home")</li>
+                            <li>@Html.ActionLink("contact", "Contact", "Home")</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container">
+            
+            <div class="row">
+                <div class="span8">
+                    @RenderBody()        
+                </div>
+                <div class="span4">
+                    <h2>GitHub</h2>
+                    <p>
+                        All the code I write in my personal time gets hosted publically on GitHub, excepting stuff I don't have the rights to host. Take a look, this very webstie is even on there!
+                    </p>
+                    <p><a class="btn" href="https://github.com/JWroe">Away we go! &raquo;</a></p>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")    
-    @RenderSection("scripts", required: false)
-</body>
+                    <h2>LinkedIn</h2>
+                    <p>
+                        If you want to see my work related stuff, here's my LinkedIn account
+                    </p>
+                    <p><a class="btn" href="http://uk.linkedin.com/pub/jamie-wroe/63/9b9/122">Thataway &raquo;</a></p>
+                </div>
+            </div>
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")    
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
