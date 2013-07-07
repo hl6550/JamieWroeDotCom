@@ -151,6 +151,12 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HelperLibrary\Source\JamieWroe.Common.MVC\JamieWroe.Common.MVC.csproj">
+      <Project>{9636901e-8758-41c7-8284-edc796882617}</Project>
+      <Name>JamieWroe.Common.MVC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
