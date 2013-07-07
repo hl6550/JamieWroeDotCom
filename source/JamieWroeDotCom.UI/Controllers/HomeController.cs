@@ -19,10 +19,10 @@
         {
             return View("Contact");
         }
-
-        public ActionResult Portfolio()
+        
+        public ActionResult Blog()
         {
-            return View("Portfolio");
+            return View("Blog");
         }
 
     }
