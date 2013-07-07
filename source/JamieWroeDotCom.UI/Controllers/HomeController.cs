@@ -10,20 +10,5 @@
             return View("Index");
         }
 
-        public ActionResult About()
-        {
-            return View("About");
-        }
-
-        public ActionResult Contact()
-        {
-            return View("Contact");
-        }
-        
-        public ActionResult Blog()
-        {
-            return View("Blog");
-        }
-
     }
 }
