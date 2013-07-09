@@ -10,12 +10,13 @@
         public string Title { get; set; }
         public string Content { get; set; }
         public string Author { get; set; }
-        public string ThumbnailGuid { get; set; }
+        public string ImageName { get; set; }
         public string Blurb { get; set; }
         public IEnumerable<String> Keywords { get; set; }
         public Status Status { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime PublishDate { get; set; }
+        public DateTime LastEdited { get; set; }
 
     }
 

@@ -1,13 +1,13 @@
-﻿namespace JamieWroeDotCom.Data
+﻿using JamieWroeDotCom.Data.Configuration;
+
+namespace JamieWroeDotCom.Data
 {
     using System.Configuration;
     using System.Data.Entity;
-
-    using JamieWroeDotCom.Models;
+    using Models;
 
     public class DataContext : DbContext
     {
-
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
 
@@ -16,7 +16,14 @@
             get { return ConfigurationManager.AppSettings["ConnectionStringName"] ?? "DefaultConnection"; }
         }
 
-        public DataContext() : base(ConnectionString) {}
+        public DataContext() : base(ConnectionString)
+        {
+        }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new PostConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+        }
     }
 }
