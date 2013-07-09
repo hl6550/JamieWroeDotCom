@@ -20,6 +20,11 @@ namespace JamieWroeDotCom.Data
         {
         }
 
+        static DataContext()
+        {
+            Database.SetInitializer(new CustomDatabaseInitializer());
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PostConfiguration());
