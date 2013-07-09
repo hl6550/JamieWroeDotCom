@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using JamieWroeDotCom.Data.Annotations;
 using JamieWroeDotCom.Data.Configuration;
+using JamieWroeDotCom.Models;
 
-namespace JamieWroeDotCom.Data
+namespace JamieWroeDotCom.Data.Migrations
 {
-    using System.Configuration;
-    using System.Data.Entity;
-    using Models;
-
+    [UsedImplicitly]
     public class DataContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public static string ConnectionString
+        private static string ConnectionString
         {
-            get { return ConfigurationManager.AppSettings["ConnectionStringName"] ?? "DefaultConnection"; }
+            
+            get { return "JamieWroeDotCom.Data"; }
         }
 
         public DataContext() : base(ConnectionString)
         {
-        }
-
-        static DataContext()
-        {
-            Database.SetInitializer(new CustomDatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

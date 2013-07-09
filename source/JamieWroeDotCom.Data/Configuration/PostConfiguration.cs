@@ -7,15 +7,14 @@ namespace JamieWroeDotCom.Data.Configuration
     {
         public PostConfiguration()
         {
-            Property(p => p.Content).HasColumnType("LONGTEXT");
-
             Property(p => p.CreationDate).IsRequired()
                                          .HasColumnName("datetime");
 
             Property(p => p.Id).IsRequired()
                                .HasColumnOrder(0);
 
-            Property(p => p.Title).IsRequired();
+            Property(p => p.Title).IsRequired()
+                                  .HasMaxLength(200);
         }
     }
 }
