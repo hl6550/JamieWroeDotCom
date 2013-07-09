@@ -1,4 +1,8 @@
-﻿using JamieWroeDotCom.Data.Configuration;
+﻿using System;
+using System.Data;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using JamieWroeDotCom.Data.Configuration;
 
 namespace JamieWroeDotCom.Data
 {
@@ -29,6 +33,39 @@ namespace JamieWroeDotCom.Data
         {
             modelBuilder.Configurations.Add(new PostConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+        }
+
+        private void ApplyRules()
+        {
+            UpdateTimeStamps();
+        }
+
+        private void UpdateTimeStamps()
+        {
+            var changedEntries = ChangeTracker.Entries<IAuditInfo>()
+                                              .Where(e => e.State == EntityState.Added ||
+                                                          e.State == EntityState.Modified);
+
+            foreach (var entry in changedEntries)
+            {
+                UpdateTimeStamp(entry);
+            }
+        }
+
+        private static void UpdateTimeStamp(DbEntityEntry<IAuditInfo> entry)
+        {
+            if (entry.State == EntityState.Added)
+            {
+                entry.Entity.CreationDate = DateTime.Now;
+            }
+
+            entry.Entity.LastModified = DateTime.Now;
+        }
+
+        public override int SaveChanges()
+        {
+            ApplyRules();
+            return base.SaveChanges();
         }
     }
 }
