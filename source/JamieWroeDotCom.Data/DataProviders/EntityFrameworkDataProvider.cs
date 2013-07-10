@@ -58,7 +58,7 @@ namespace JamieWroeDotCom.Data.DataProviders
                           .Where(entity => query(entity));
         }
 
-        public IStatefulEntity<T> GetStatefulEntity<T>(T entity) where T : class
+        public IStatefulEntity<T> GetStatefulEntity<T>(T entity) where T : class, IUniqueEntity
         {
             return new StatefulEntity<T>
                    {
@@ -67,7 +67,7 @@ namespace JamieWroeDotCom.Data.DataProviders
                    };
         }
 
-        private class StatefulEntity<T> : IStatefulEntity<T> where T : class
+        private class StatefulEntity<T> : IStatefulEntity<T> where T : class, IUniqueEntity
         {
             public T Entity { get; internal set; }
             public EntityState State { get; set; }
