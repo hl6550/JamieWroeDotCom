@@ -1,88 +1,70 @@
-﻿using System;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data;
 using System.Linq;
 
 namespace JamieWroeDotCom.Data.Repositories
 {
-    internal class EntityFrameworkRepository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class, IUniqueEntity
     {
-        private DbSet<T> DbSet { get; set; }
-        private DbContext Context { get; set; }
-
-        public EntityFrameworkRepository(DbContext context)
+        private readonly IDataProvider dataProvider;
+        public Repository(IDataProvider dataProvider)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException("context");
-            }
-
-            Context = context;
-            DbSet = context.Set<T>();
+            this.dataProvider = dataProvider;
         }
 
         public IQueryable<T> GetAll()
         {
-            return DbSet;
+            return dataProvider.Query<T>();
         }
 
         public T GetById(int id)
         {
-            return DbSet.Find(id);
+            return dataProvider.Query<T>(entity => entity.Id == id)
+                               .Single();
         }
 
         public void Add(T entity)
         {
-            var entry = Context.Entry(entity);
+            var statefulEntity = dataProvider.GetStatefulEntity(entity);
 
-            if (entry.State == EntityState.Detached)
+            if (statefulEntity.State == EntityState.Detached)
             {
-                entry.State = EntityState.Added;
+                statefulEntity.State = EntityState.Added;
             }
             else
             {
-                DbSet.Add(entity);
+                dataProvider.Add(entity);
             }
         }
 
         public void Update(T entity)
         {
-            var entry = Context.Entry(entity);
+            var statefulEntity = dataProvider.GetStatefulEntity(entity);
 
-            if (entry.State == EntityState.Detached)
+            if (statefulEntity.State == EntityState.Detached)
             {
-                DbSet.Attach(entity);
+                dataProvider.Attach(entity);
             }
 
-            entry.State = EntityState.Modified;
+            statefulEntity.State = EntityState.Modified;
         }
 
         public void Delete(T entity)
         {
-            var entry = Context.Entry(entity);
+            var statefulEntity = dataProvider.GetStatefulEntity(entity);
 
-            if (entry.State != EntityState.Deleted)
+            if (statefulEntity.State == EntityState.Detached)
             {
-                entry.State = EntityState.Deleted;
-            }
-            else
-            {
-                DbSet.Attach(entity);
-                DbSet.Remove(entity);
+                dataProvider.Attach(entity);
+                dataProvider.Remove(entity);
             }
 
-            entry.State = EntityState.Modified;
+            statefulEntity.State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
             var entity = GetById(id);
             Delete(entity);
-        }
-
-        public void Detach(T entity)
-        {
-            Context.Entry(entity).State = EntityState.Detached;
         }
     }
 }

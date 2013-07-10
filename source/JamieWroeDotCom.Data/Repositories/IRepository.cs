@@ -2,7 +2,7 @@
 
 namespace JamieWroeDotCom.Data.Repositories
 {
-    internal interface IRepository<T>  where T : class
+    internal interface IRepository<T>  where T : IUniqueEntity
     {
         IQueryable<T> GetAll();
         T GetById(int id);
@@ -10,6 +10,5 @@ namespace JamieWroeDotCom.Data.Repositories
         void Update(T entity);
         void Delete(T entity);
         void Delete(int id);
-        void Detach(T entity);
     }
 }
