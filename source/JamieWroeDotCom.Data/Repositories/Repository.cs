@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace JamieWroeDotCom.Data.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    internal class EntityFrameworkRepository<T> : IRepository<T> where T : class
     {
         private DbSet<T> DbSet { get; set; }
         private DbContext Context { get; set; }
 
-        public Repository(DbContext context)
+        public EntityFrameworkRepository(DbContext context)
         {
             if (context == null)
             {
