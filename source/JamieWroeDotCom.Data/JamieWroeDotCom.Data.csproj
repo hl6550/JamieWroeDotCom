@@ -53,8 +53,8 @@
   <ItemGroup>
     <Compile Include="Configuration\PostConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
-    <Compile Include="EntityFrameworkDataProvider.cs" />
-    <Compile Include="IDataProvider.cs" />
+    <Compile Include="DataProviders\EntityFrameworkDataProvider.cs" />
+    <Compile Include="DataProviders\IDataProvider.cs" />
     <Compile Include="IStatefulEntity.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Migrations\DataContext.cs" />

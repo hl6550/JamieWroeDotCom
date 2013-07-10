@@ -2,7 +2,7 @@
 using System.Linq;
 using JamieWroeDotCom.Data.Repositories;
 
-namespace JamieWroeDotCom.Data
+namespace JamieWroeDotCom.Data.DataProviders
 {
     public interface IDataProvider : IDisposable
     {
