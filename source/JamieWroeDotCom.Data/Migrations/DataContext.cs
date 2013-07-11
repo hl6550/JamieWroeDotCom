@@ -18,7 +18,7 @@ namespace JamieWroeDotCom.Data.Migrations
         private static string ConnectionString
         {
             
-            get { return "Data Source=(localdb)\v11.0;Initial Catalog=JamieWroeDotComDEV;Integrated Security=True"; }
+            get { return @"Data Source=(localdb)\v11.0;Initial Catalog=JamieWroeDotComDEV;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"; }
         }
 
         public DataContext() : base(ConnectionString)
