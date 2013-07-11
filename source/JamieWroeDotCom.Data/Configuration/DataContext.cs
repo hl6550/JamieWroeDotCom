@@ -4,10 +4,10 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using JamieWroeDotCom.Data.Annotations;
-using JamieWroeDotCom.Data.Configuration;
+using JamieWroeDotCom.Data.Configuration.Entities;
 using JamieWroeDotCom.Models;
 
-namespace JamieWroeDotCom.Data.Migrations
+namespace JamieWroeDotCom.Data.Configuration
 {
     [UsedImplicitly]
     public class DataContext : DbContext
@@ -17,7 +17,6 @@ namespace JamieWroeDotCom.Data.Migrations
 
         private static string ConnectionString
         {
-            
             get { return @"Data Source=(localdb)\v11.0;Initial Catalog=JamieWroeDotComDEV;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"; }
         }
 

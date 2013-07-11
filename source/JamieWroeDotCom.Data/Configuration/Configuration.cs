@@ -1,11 +1,10 @@
 using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using JamieWroeDotCom.Models;
 
-namespace JamieWroeDotCom.Data.Migrations
+namespace JamieWroeDotCom.Data.Configuration
 {
-    using System.Data.Entity.Migrations;
-
     internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
         public Configuration()

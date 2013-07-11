@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using JamieWroeDotCom.Models;
 
-namespace JamieWroeDotCom.Data.Configuration
+namespace JamieWroeDotCom.Data.Configuration.Entities
 {
     public class UserConfiguration : EntityTypeConfiguration<User>
     {
