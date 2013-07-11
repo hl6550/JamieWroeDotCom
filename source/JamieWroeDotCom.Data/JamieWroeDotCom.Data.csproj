@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Entities\MembershipConfiguration.cs" />
+    <Compile Include="Configuration\Entities\OAuthMembershipConfiguration.cs" />
     <Compile Include="Configuration\Entities\PostConfiguration.cs" />
     <Compile Include="Configuration\Entities\UserConfiguration.cs" />
     <Compile Include="DataProviders\EntityFrameworkDataProvider.cs" />
