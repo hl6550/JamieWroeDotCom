@@ -29,6 +29,9 @@ namespace JamieWroeDotCom.Data.Configuration
         {
             modelBuilder.Configurations.Add(new PostConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new MembershipConfiguration());
+            modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
         }
 
         private void ApplyRules()

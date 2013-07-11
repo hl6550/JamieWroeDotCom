@@ -9,6 +9,7 @@ namespace JamieWroeDotCom.Data.Configuration
     {
         public Configuration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
         }
 

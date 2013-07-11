@@ -7,8 +7,7 @@ namespace JamieWroeDotCom.Data.Configuration.Entities
     {
         public PostConfiguration()
         {
-            Property(p => p.CreationDate).IsRequired()
-                                         .HasColumnName("datetime");
+            Property(p => p.CreationDate).IsRequired();
 
             Property(p => p.Id).IsRequired()
                                .HasColumnOrder(0);

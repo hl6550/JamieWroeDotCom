@@ -51,10 +51,15 @@
     <Compile Include="Configuration\Entities\MembershipConfiguration.cs" />
     <Compile Include="Configuration\Entities\OAuthMembershipConfiguration.cs" />
     <Compile Include="Configuration\Entities\PostConfiguration.cs" />
+    <Compile Include="Configuration\Entities\RoleConfiguration.cs" />
     <Compile Include="Configuration\Entities\UserConfiguration.cs" />
     <Compile Include="DataProviders\EntityFrameworkDataProvider.cs" />
     <Compile Include="DataProviders\IDataProvider.cs" />
     <Compile Include="IStatefulEntity.cs" />
+    <Compile Include="Migrations\201307112133240_InitialMigrations.cs" />
+    <Compile Include="Migrations\201307112133240_InitialMigrations.Designer.cs">
+      <DependentUpon>201307112133240_InitialMigrations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Configuration\DataContext.cs" />
     <Compile Include="Configuration\Configuration.cs" />
@@ -73,8 +78,11 @@
       <Name>JamieWroeDotCom.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <EmbeddedResource Include="Migrations\201307112133240_InitialMigrations.resx">
+      <DependentUpon>201307112133240_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
