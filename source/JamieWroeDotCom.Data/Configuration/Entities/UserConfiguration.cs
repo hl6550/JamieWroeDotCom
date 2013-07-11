@@ -9,7 +9,7 @@ namespace JamieWroeDotCom.Data.Configuration.Entities
         {
             Property(p => p.Id).HasColumnOrder(0);
 
-            Property(p => p.UsertName).IsRequired()
+            Property(p => p.UserName).IsRequired()
                                       .HasMaxLength(200);
 
             Property(p => p.FirstName).HasMaxLength(100);
