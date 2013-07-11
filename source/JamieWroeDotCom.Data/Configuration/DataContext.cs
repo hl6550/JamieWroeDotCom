@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -17,7 +18,7 @@ namespace JamieWroeDotCom.Data.Configuration
 
         private static string ConnectionString
         {
-            get { return @"Data Source=(localdb)\v11.0;Initial Catalog=JamieWroeDotComDEV;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"; }
+            get { return ConfigurationManager.AppSettings["ConnectionString"]; }
         }
 
         public DataContext() : base(ConnectionString)
