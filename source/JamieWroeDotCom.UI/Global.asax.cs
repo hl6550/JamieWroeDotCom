@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using JamieWroeDotCom.UI.App_Start;
+using WebMatrix.WebData;
 
 namespace JamieWroeDotCom.UI
 {
@@ -12,6 +13,8 @@ namespace JamieWroeDotCom.UI
     {
         protected void Application_Start()
         {
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Users", "Id", "UserName", true);
+
             NinjectHelper.ConfigureNinject();
 
             AreaRegistration.RegisterAllAreas();

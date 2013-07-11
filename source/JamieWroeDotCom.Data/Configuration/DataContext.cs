@@ -18,7 +18,7 @@ namespace JamieWroeDotCom.Data.Configuration
 
         private static string ConnectionString
         {
-            get { return ConfigurationManager.AppSettings["ConnectionString"]; }
+            get { return "DefaultConnection"; }
         }
 
         public DataContext() : base(ConnectionString)
