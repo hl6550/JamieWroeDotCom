@@ -2,7 +2,7 @@
 
 namespace JamieWroeDotCom.Data.Repositories
 {
-    internal interface IRepository<T>  where T : IUniqueEntity
+    public interface IRepository<T>  where T : IUniqueEntity
     {
         IQueryable<T> GetAll();
         T GetById(int id);

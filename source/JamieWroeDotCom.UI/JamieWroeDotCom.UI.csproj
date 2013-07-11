@@ -159,6 +159,10 @@
       <Project>{9636901e-8758-41c7-8284-edc796882617}</Project>
       <Name>JamieWroe.Common.MVC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JamieWroeDotCom.Data\JamieWroeDotCom.Data.csproj">
+      <Project>{321BE4E3-9ACE-4E06-8A1B-94121220D925}</Project>
+      <Name>JamieWroeDotCom.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

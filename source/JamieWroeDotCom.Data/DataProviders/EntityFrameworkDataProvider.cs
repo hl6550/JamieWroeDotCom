@@ -6,7 +6,7 @@ using JamieWroeDotCom.Data.Repositories;
 
 namespace JamieWroeDotCom.Data.DataProviders
 {
-    internal class EntityFrameworkDataProvider : IDataProvider
+    public class EntityFrameworkDataProvider : IDataProvider
     {
         private readonly DbContext context;
 
